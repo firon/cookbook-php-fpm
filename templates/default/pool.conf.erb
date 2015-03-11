@@ -366,7 +366,7 @@ request_terminate_timeout = <%=@request_terminate_timeout || 0 %>
 ; Default Value: no
 catch_workers_output = <%= @catch_workers_output || "no" %>
 
-<% if node['platform'] != 'ubuntu' && node['platform_version'] != '10.04' %>
+<% unless node['platform'] == 'ubuntu' && node['platform_version'] == '10.04' %>
 ; Limits the extensions of the main script FPM will allow to parse. This can
 ; prevent configuration mistakes on the web server side. You should only limit
 ; FPM to .php extensions to prevent malicious users to use other extensions to
